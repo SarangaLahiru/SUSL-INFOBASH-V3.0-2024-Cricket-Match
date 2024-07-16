@@ -2,7 +2,7 @@
 import { collection, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { db } from '../../firebase'; // Import your Firebase Firestore instance
+import { db } from '../../firebaseConfig'; // Import your Firebase Firestore instance
 
 const AdminLoginPage = () => {
     const [email, setEmail] = useState('');

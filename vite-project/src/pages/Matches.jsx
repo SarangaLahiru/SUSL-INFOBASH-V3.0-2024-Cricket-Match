@@ -1,7 +1,7 @@
 // src/components/Matches.jsx
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { db } from "../../firebase";
+import { db } from "../../firebaseConfig";
 import MatchCard from "./MatchCard";
 
 const Matches = () => {

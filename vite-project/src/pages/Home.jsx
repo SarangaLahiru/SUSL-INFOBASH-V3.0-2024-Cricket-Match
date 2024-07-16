@@ -1,58 +1,84 @@
-// src/pages/Home.jsx
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"; // Import signInWithPopup and GoogleAuthProvider
-import React, { useState } from "react";
-import { auth, db, } from "../../firebase"; // Import Firebase functions
+import { doc, getDoc, setDoc } from "firebase/firestore"; // Import Firestore functions
+import React, { useEffect, useState } from "react";
+import { FcGoogle } from "react-icons/fc"; // Import Google icon
+import { auth, db } from "../../firebaseConfig"; // Import Firebase functions
+import CountdownTimer from "../components/CountdownTimer";
+import { ImageCarousel } from "../components/Images"; // Ensure the path is correct
 import TeamRegistration from "./TeamRegistration";
 
 const Home = ({ user }) => {
     const [team, setTeam] = useState(null);
     const [allTeams, setAllTeams] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        // Fetch the user's team if the user is authenticated
+        const fetchTeam = async () => {
+            if (user) {
+                try {
+                    const userDoc = doc(db, `users/${user.uid}`);
+                    const userDocSnap = await getDoc(userDoc);
+
+                    if (userDocSnap.exists()) {
+                        const userData = userDocSnap.data();
+                        setTeam(userData.team);
+                    }
+                } catch (error) {
+                    console.error("Error fetching team:", error);
+                    setError("Error fetching team information.");
+                }
+            }
+        };
+
+        fetchTeam();
+    }, [user]);
 
     const signInWithGoogle = async () => {
-        const provider = new GoogleAuthProvider(); // Create GoogleAuthProvider instance
+        const provider = new GoogleAuthProvider();
         try {
-            const result = await signInWithPopup(auth, provider); // Sign in with Google popup
+            const result = await signInWithPopup(auth, provider);
             const user = result.user;
-            const userDoc = db.doc(`users/${user.uid}`);
+            const userDoc = doc(db, `users/${user.uid}`);
             const userDocSnap = await getDoc(userDoc);
 
             if (!userDocSnap.exists()) {
-                // If user doc doesn't exist, create new user document
                 await setDoc(userDoc, { email: user.email, name: user.displayName, avatar: user.photoURL });
             }
         } catch (error) {
             console.error("Error signing in with Google:", error);
-            throw error;
+            setError("Error signing in with Google. Please try again.");
         }
     };
 
-
-
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center relative " >
+            {error && <div className="text-red-500 mb-4">{error}</div>}
             {user ? (
                 <>
 
-                    {team ? (
-                        <div className="w-full max-w-2xl bg-white p-8 rounded shadow-md mt-8">
-                            <h2 className="text-2xl font-bold mb-4">Your Team</h2>
-                            <ul>
-                                {team.members.map((member, index) => (
-                                    <li key={index} className="mb-2">
-                                        {member.name} ({member.email})
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ) : (
-                        <TeamRegistration user={user} />
-                    )}
+                    <TeamRegistration user={user} />
 
                 </>
             ) : (
-                <button onClick={signInWithGoogle} className="bg-blue-500 text-white px-4 py-2 rounded">
-                    Sign In with Google
-                </button>
+                <div className="absolute w-full flex flex-col items-center -mt-72" >
+                    <div className="w-full" >
+                        <ImageCarousel />
+                    </div>
+                    <div className="mt-8 relative z-50">
+                        <button
+                            onClick={signInWithGoogle}
+                            className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-3 rounded-full shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none flex items-center"
+                        >
+                            <FcGoogle className="mr-2" size={24} />
+                            Register your team
+                        </button>
+                    </div>
+                    <div className=" absolute w-50 m-auto mt-72">
+                        <CountdownTimer targetDate={new Date("2024-12-31T23:59:59")} />
+
+                    </div>
+                </div>
             )}
         </div>
     );

@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { auth } from "../firebase";
+import { auth } from "../firebaseConfig";
 import AdminDashboard from "./admin/AdminDashboard";
 import AdminLoginPage from "./admin/AdminLoginPage";
 import NavBar from "./components/NavBar";

@@ -2,7 +2,7 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import React, { useEffect, useState } from "react";
-import { db, storage } from "../../firebase";
+import { db, storage } from "../../firebaseConfig";
 
 const TeamRegistration = ({ user }) => {
     const [teamName, setTeamName] = useState("");
@@ -99,27 +99,35 @@ const TeamRegistration = ({ user }) => {
     };
 
     return (
-        <div className="container mx-auto mt-8">
-            <h2 className="text-2xl font-bold mb-4">Register Your Team</h2>
+        <div className="container mx-auto mt-1">
+
             {isRegistered && registeredTeam ? (
-                <div className="bg-white p-8 rounded shadow-md max-w-lg mx-auto">
-                    <h3 className="text-xl font-bold mb-4">{registeredTeam.teamName}</h3>
-                    {registeredTeam.teamLogo && (
-                        <img
-                            src={registeredTeam.teamLogo}
-                            alt="Team Logo"
-                            className="w-32 h-32 object-cover rounded-full mb-4"
-                        />
-                    )}
-                    <h4 className="text-lg font-semibold mb-2">Team Members:</h4>
-                    <ul className="list-disc list-inside mb-4">
-                        {registeredTeam.teamMembers.map((member, index) => (
-                            <li key={index}>{member}</li>
-                        ))}
-                    </ul>
-                    {/* <p>Team Leader: {registeredTeam.leader}</p> */}
-                    {/* <p className="text-sm text-gray-600 mt-2">Registered on: {registeredTeam.createdAt.toDate().toLocaleDateString()}</p> */}
-                    <p className="text-red-500 mt-4">You have already registered a team.</p>
+                <div className="-mt-24">
+                    <p className="text-green-500 mt-4 text-center font-semibold text-2xl">You have already registered a team.</p>
+                    <div className="bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto">
+                        <h3 className="text-3xl font-bold mb-4 text-center text-blue-600">{registeredTeam.teamName}</h3>
+                        {registeredTeam.teamLogo && (
+                            <div className="flex justify-center mb-4">
+                                <img
+                                    src={registeredTeam.teamLogo}
+                                    alt="Team Logo"
+                                    className="w-40 h-40 object-cover rounded-full shadow-lg"
+                                />
+                            </div>
+                        )}
+                        <h4 className="text-xl font-semibold mb-2 text-center text-gray-800">Team Members:</h4>
+                        <ul className="text-lg mb-4 pl-6">
+                            {registeredTeam.teamMembers.map((member, index) => (
+                                <li key={index} className="mb-2">
+                                    <span className="text-blue-600">{member}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        {/* Additional Information (Commented Out) */}
+                        {/* <p className="text-xl">Team Leader: {registeredTeam.leader}</p> */}
+                        {/* <p className="text-lg text-gray-600 mt-2">Registered on: {registeredTeam.createdAt.toDate().toLocaleDateString()}</p> */}
+
+                    </div>
                 </div>
             ) : (
                 <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md max-w-lg mx-auto">

@@ -1,7 +1,7 @@
 // src/components/AddMatchForm.jsx
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
-import { db } from "../../firebase";
+import { db } from "../../firebaseConfig";
 
 const AddMatchForm = () => {
     const [team1Id, setTeam1Id] = useState("");
