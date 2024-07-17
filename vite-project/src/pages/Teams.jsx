@@ -2,6 +2,9 @@ import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { db } from '../../firebaseConfig';
 
+
+
+
 export default function Teams() {
     const [teams, setTeams] = useState([]);
 
@@ -22,34 +25,28 @@ export default function Teams() {
 
         fetchTeams();
     }, []);
-
     return (
-        <div className="teams">
+        <div>
+
             <div className="container mx-auto mt-8">
                 <h2 className="text-2xl font-bold mb-4">Registered Teams</h2>
-                <div className="grid text-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {teams.map((team) => (
-                       <div key={team.id} className="gold-gradient-border p-4 rounded-lg shadow-md" style={{ backgroundColor: '#05080f' }}>
-
-                            <h3 className="text-xl font-semibold mb-2">{team.teamName}</h3>
+                        <div key={team.id} className="bg-white p-4 rounded-lg shadow-md">
                             <img
                                 src={team.teamLogo}
                                 alt={`${team.teamName} Logo`}
                                 className="w-full h-40 object-cover rounded-md mb-4"
                             />
-                            <div className="text-gray-600 mb-4 text-white">
-                                <h4 className="font-semibold">Players</h4>
-                                <ul className="list-disc pl-5 list-none">
-                                    {team.teamMembers.map((member, index) => (
-                                        <li className="bg-teal-900 mb-2 rounded-xl" key={index}>{member}</li>
-                                    ))}
-                                </ul>
-                            </div>
+                            <h3 className="text-xl font-semibold mb-2">{team.teamName}</h3>
+                            <p className="text-gray-600 mb-4">{team.teamMembers.join(", ")}</p>
                             {/* <p className="text-gray-500 text-sm">Registered on: {team.createdAt.toDate().toLocaleDateString()}</p> */}
                         </div>
                     ))}
                 </div>
             </div>
+
+
         </div>
-    );
+    )
 }

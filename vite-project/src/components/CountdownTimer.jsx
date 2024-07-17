@@ -32,9 +32,9 @@ const CountdownTimer = ({ targetDate }) => {
     }, [targetDate]);
 
     return (
-        <div className=" flex flex-col items-center justify-center p-1 bg-gray-900 shadow-lg  hover:shadow-xl">
+        <div className="w-full flex flex-col items-center justify-center p-1 bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 shadow-lg  hover:shadow-xl">
 
-            <div className="flex items-center justify-center space-x-4 p-6 rounded-lg shadow-inner text-center">
+            <div className="flex items-center justify-center space-x-4 rounded-lg shadow-inner text-center">
                 <div className="flex flex-col items-center">
                     <span className="text-yellow-500 text-4xl font-extrabold">{timeLeft.days}</span>
                     <span className="text-gray-500 font-medium">Days</span>

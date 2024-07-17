@@ -2,28 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: #000014; /* Dark Blue */
-    color: white; /* Optional: Set text color to white for better readability */
+.custom-swal {
+    background-color: #333;
+    /* Background color */
+    color: #fff;
+    /* Text color */
 }
 
-@layer components {
-  .gold-gradient-border {
-    position: relative;
-    padding: 4px; /* Adjust the padding to fit the border */
-    background-clip: padding-box;
-    border-radius: 10px;
-  }
+.custom-swal .swal2-title {
+    color: #ffcc00;
+    /* Title color */
+}
 
-  .gold-gradient-border::before {
-    content: '';
-    position: absolute;
-    top: -4px; /* Adjust the value based on the border thickness */
-    left: -4px; /* Adjust the value based on the border thickness */
-    right: -4px; /* Adjust the value based on the border thickness */
-    bottom: -4px; /* Adjust the value based on the border thickness */
-    background: linear-gradient(90deg, #ffd700, #ffa500); /* Gold gradient */
-    border-radius: inherit;
-    z-index: -1;
-  }
+.custom-swal .swal2-icon {
+    color: #ffcc00;
+    /* Icon color */
 }
