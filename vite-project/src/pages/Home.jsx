@@ -1,19 +1,19 @@
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"; // Import signInWithPopup and GoogleAuthProvider
-import { doc, getDoc, setDoc } from "firebase/firestore"; // Import Firestore functions
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { FcGoogle } from "react-icons/fc"; // Import Google icon
-import { auth, db } from "../../firebaseConfig"; // Import Firebase functions
+import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
+import { auth, db } from "../../firebaseConfig";
 import CountdownTimer from "../components/CountdownTimer";
-import { ImageCarousel } from "../components/Images"; // Ensure the path is correct
-import TeamRegistration from "./TeamRegistration";
+import { ImageCarousel } from "../components/Images";
 
 const Home = ({ user }) => {
     const [team, setTeam] = useState(null);
     const [allTeams, setAllTeams] = useState([]);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch the user's team if the user is authenticated
         const fetchTeam = async () => {
             if (user) {
                 try {
@@ -45,6 +45,8 @@ const Home = ({ user }) => {
             if (!userDocSnap.exists()) {
                 await setDoc(userDoc, { email: user.email, name: user.displayName, avatar: user.photoURL });
             }
+
+            navigate('/register');
         } catch (error) {
             console.error("Error signing in with Google:", error);
             setError("Error signing in with Google. Please try again.");
@@ -52,35 +54,32 @@ const Home = ({ user }) => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center relative " >
-            {error && <div className="text-red-500 mb-4">{error}</div>}
-            {user ? (
-                <>
+        <>
+            <div className="">
+                <CountdownTimer targetDate={new Date("2024-12-31T23:59:59")} />
+            </div>
+            <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white relative overflow-hidden">
 
-                    <TeamRegistration user={user} />
-
-                </>
-            ) : (
-                <div className="absolute w-full flex flex-col items-center -mt-72" >
-                    <div className="w-full" >
-                        <ImageCarousel />
-                    </div>
-                    <div className="mt-8 relative z-50">
-                        <button
-                            onClick={signInWithGoogle}
-                            className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-3 rounded-full shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none flex items-center"
-                        >
-                            <FcGoogle className="mr-2" size={24} />
-                            Register your team
-                        </button>
-                    </div>
-                    <div className=" absolute w-50 m-auto mt-72">
-                        <CountdownTimer targetDate={new Date("2024-12-31T23:59:59")} />
-
-                    </div>
+                <div className="absolute top-0 left-0 w-full h-full z-10">
+                    <ImageCarousel />
                 </div>
-            )}
-        </div>
+                <div className="absolute top-0 left-0  z-20"></div>
+                <div className="relative z-30 flex flex-col items-center justify-center p-10 -top-24" style={{ backgroundColor: " rgba(0, 0, 0, 0.507)" }}>
+                    <h1 className="text-5xl font-bold mb-8 animate-fade-in">Welcome to Info Bash</h1>
+                    <p className="text-xl mb-6 animate-fade-in delay-1s">Join the competition and register your team now!</p>
+                    <button
+                        onClick={signInWithGoogle}
+                        className="bg-gradient-to-r from-yellow-500 to-yellow-900 text-white px-6 py-3 rounded-full shadow-lg  hover:shadow-xl focus:outline-none flex items-center"
+                    >
+                        <FcGoogle className="mr-2" size={24} />
+                        Register your team
+                    </button>
+                    {/* {error && <p className="-mt-4 text-red-500">{error}</p>} */}
+
+                </div>
+            </div>
+
+        </>
     );
 };
 

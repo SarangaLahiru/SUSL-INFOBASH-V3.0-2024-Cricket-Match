@@ -32,26 +32,27 @@ const CountdownTimer = ({ targetDate }) => {
     }, [targetDate]);
 
     return (
-        <div className="text-center text-4xl font-bold mt-56">
-            <div className="flex items-center justify-center space-x-4">
+        <div className=" flex flex-col items-center justify-center p-1 bg-gray-900 shadow-lg  hover:shadow-xl">
+
+            <div className="flex items-center justify-center space-x-4 p-6 rounded-lg shadow-inner text-center">
                 <div className="flex flex-col items-center">
-                    <span className="text-blue-500 text-6xl">{timeLeft.days}</span>
-                    <span className="text-gray-500">Days</span>
+                    <span className="text-yellow-500 text-4xl font-extrabold">{timeLeft.days}</span>
+                    <span className="text-gray-500 font-medium">Days</span>
                 </div>
-                <span className="text-gray-400 text-6xl">:</span>
+                <span className="text-gray-500 text-4xl font-extrabold">:</span>
                 <div className="flex flex-col items-center">
-                    <span className="text-blue-500 text-6xl">{timeLeft.hours}</span>
-                    <span className="text-gray-500">Hours</span>
+                    <span className="text-yellow-500 text-4xl font-extrabold">{timeLeft.hours}</span>
+                    <span className="text-gray-500 font-medium">Hours</span>
                 </div>
-                <span className="text-gray-400 text-6xl">:</span>
+                <span className="text-gray-500 text-4xl font-extrabold">:</span>
                 <div className="flex flex-col items-center">
-                    <span className="text-blue-500 text-6xl">{timeLeft.minutes}</span>
-                    <span className="text-gray-500">Minutes</span>
+                    <span className="text-yellow-500 text-4xl font-extrabold">{timeLeft.minutes}</span>
+                    <span className="text-gray-500 font-medium">Minutes</span>
                 </div>
-                <span className="text-gray-400 text-6xl">:</span>
+                <span className="text-gray-500 text-4xl font-extrabold">:</span>
                 <div className="flex flex-col items-center">
-                    <span className="text-blue-500 text-6xl">{timeLeft.seconds}</span>
-                    <span className="text-gray-500">Seconds</span>
+                    <span className="text-yellow-500 text-4xl font-extrabold">{timeLeft.seconds}</span>
+                    <span className="text-gray-500 font-medium">Seconds</span>
                 </div>
             </div>
         </div>
