@@ -55,9 +55,7 @@ const Home = ({ user }) => {
 
     return (
         <>
-            <div className="">
-                <CountdownTimer targetDate={new Date("2024-12-31T23:59:59")} />
-            </div>
+          
             <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white relative overflow-hidden">
 
                 <div className="absolute top-0 left-0 w-full h-full z-10">
@@ -67,6 +65,9 @@ const Home = ({ user }) => {
                 <div className="relative z-30 flex flex-col items-center justify-center p-10 -top-24" style={{ backgroundColor: " rgba(0, 0, 0, 0.507)" }}>
                     <h1 className="text-5xl font-bold mb-8 animate-fade-in">Welcome to Info Bash</h1>
                     <p className="text-xl mb-6 animate-fade-in delay-1s">Join the competition and register your team now!</p>
+                        <div className="">
+                    <CountdownTimer targetDate={new Date("2024-12-31T23:59:59")} />
+                </div>
                     <button
                         onClick={signInWithGoogle}
                         className="bg-gradient-to-r from-yellow-500 to-yellow-900 text-white px-6 py-3 rounded-full shadow-lg  hover:shadow-xl focus:outline-none flex items-center"

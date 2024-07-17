@@ -17,8 +17,8 @@ const NavBar = ({ user }) => {
         <div className="bg-black relative z-50">
             <Navbar className="p-0 bg-gradient-to-r from-black via-yellow-700 to-yellow-500 shadow-lg z-50">
                 <Navbar.Brand href="/">
-                    <img src="/favicon.svg" className="mr-3 h-10 sm:h-14" alt="Flowbite React Logo" />
-                    {/* <span className="self-center text-2xl font-bold whitespace-nowrap text-black">Info Bash</span> */}
+                    <img src="./img/ggg.png" className="mr-3 h-10 sm:h-14" alt=" Logo" />
+                    <span className="self-center text-2xl font-bold whitespace-nowrap text-white">Info Bash</span>
                 </Navbar.Brand>
                 <div className="flex md:order-2 items-center">
                     {user ? (
