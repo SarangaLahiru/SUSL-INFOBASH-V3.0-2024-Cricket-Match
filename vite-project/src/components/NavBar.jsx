@@ -15,7 +15,7 @@ const NavBar = ({ user }) => {
 
     return (
         <div className="bg-black relative z-50">
-            <Navbar className="p-0 bg-gradient-to-r from-black via-yellow-700 to-yellow-500 shadow-lg z-50">
+            <Navbar className="p-0 bg-gradient-to-r from-black via-yellow-700 to-black shadow-lg z-50" style={{ backgroundColor:"#000014"}}  >
                 <Navbar.Brand href="/">
                     <img src="./img/ggg.png" className="mr-3 h-10 sm:h-14" alt=" Logo" />
                     <span className="self-center text-2xl font-bold whitespace-nowrap text-white">Info Bash</span>

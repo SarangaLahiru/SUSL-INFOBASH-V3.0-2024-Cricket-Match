@@ -56,7 +56,7 @@ const Home = ({ user }) => {
     return (
         <>
           
-            <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white relative overflow-hidden">
+            <div className="min-h-screen flex flex-col items-center justify-center  text-white relative overflow-hidden">
 
                 <div className="absolute top-0 left-0 w-full h-full z-10">
                     <ImageCarousel />
