@@ -62,11 +62,11 @@ const Home = ({ user }) => {
                     <ImageCarousel />
                 </div>
                 <div className="absolute top-0 left-0  z-20"></div>
-                <div className="relative z-30 flex flex-col items-center justify-center p-10 -top-24" style={{ backgroundColor: " rgba(0, 0, 0, 0.507)" }}>
-                    <h1 className="text-5xl font-bold mb-8 animate-fade-in">Welcome to Info Bash</h1>
-                    <p className="text-xl mb-6 animate-fade-in delay-1s">Join the competition and register your team now!</p>
+                <div className="relative z-30 flex flex-col items-center justify-center md:p-10  py-10 px-4 -top-24 md:w-8/12  w-10/12 rounded-xl" style={{ backgroundColor: " rgba(0, 0, 0, 0.807)" }}>
+                    <h1 className="md:text-8xl text-3xl font-montserrat font-bold mb-8 animate-fade-in">INFO BASH V2.0</h1>
+                    <p className="text-xl mb-6 animate-fade-in text-center delay-1s">Join the competition and register your team now!</p>
                         <div className="">
-                    <CountdownTimer targetDate={new Date("2024-12-31T23:59:59")} />
+                    <CountdownTimer targetDate={new Date("2024-07-25T07:59:59")} />
                 </div>
                     <button
                         onClick={signInWithGoogle}
