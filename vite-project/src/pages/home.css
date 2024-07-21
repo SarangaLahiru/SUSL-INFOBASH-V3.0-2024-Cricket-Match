@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+body {
+  margin: 0;
+  height: 100vh;
+
+}
+
+.fill-text {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 3rem; /* Adjust font size as needed */
+  -webkit-text-stroke: 1px #eee;
+  color: transparent;
+  letter-spacing: 5px;
+  position: relative;
+  overflow: hidden; /* Ensure the fill animation does not overflow */
+}
+
+.fill-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ff7a00;
+  -webkit-text-stroke: 3px #ff7a00;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ff7a00;
+  animation: text-fill 2s ease-in-out alternate infinite;
+}
+
+@keyframes text-fill {
+  100% {
+    width: 100%;
+  }
+}
+
+/* styles.css */
+
+/* styles.css */
+/* styles.css */
+
+/* Gold gradient border */
+.gold-gradient-border {
+    position: relative;
+    padding: 1rem; /* Adjust padding to ensure border effect is visible */
+    overflow: hidden;
+    background-color: rgba(31, 41, 55, 0.7); /* Transparent background */
+    border-radius: 0.5rem; /* Adjust border radius as needed */
+}
+
+.gold-gradient-border::before {
+    content: "";
+    position: absolute;
+    top: -5px; /* Adjust to match border width */
+    left: -5px; /* Adjust to match border width */
+    width: calc(100% + 10px); /* Adjust to match border width */
+    height: calc(100% + 10px); /* Adjust to match border width */
+    background: linear-gradient(45deg, gold, #ffd700);
+    z-index: -1;
+    border-radius: inherit; /* Ensure the border-radius matches the card */
+    transform: scale(1); /* Adjust scale for border effect */
+}
+
+  

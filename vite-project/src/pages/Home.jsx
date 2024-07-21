@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebaseConfig";
 import CountdownTimer from "../components/CountdownTimer";
 import { ImageCarousel } from "../components/Images";
+import './home.css';
 
 const Home = ({ user }) => {
     const [team, setTeam] = useState(null);
@@ -55,31 +56,40 @@ const Home = ({ user }) => {
 
     return (
         <>
-          
-            <div className="min-h-screen flex flex-col items-center justify-center  text-white relative overflow-hidden">
-
+            <div className="min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full z-10">
                     <ImageCarousel />
                 </div>
-                <div className="absolute top-0 left-0  z-20"></div>
-                <div className="relative z-30 flex flex-col items-center justify-center md:p-10  py-10 px-4 -top-24 md:w-8/12  w-10/12 rounded-xl" style={{ backgroundColor: " rgba(0, 0, 0, 0.807)" }}>
-                    <h1 className="md:text-8xl text-3xl font-montserrat font-bold mb-8 animate-fade-in">INFO BASH V2.0</h1>
-                    <p className="text-xl mb-6 animate-fade-in text-center delay-1s">Join the competition and register your team now!</p>
-                        <div className="">
-                    <CountdownTimer targetDate={new Date("2024-07-25T07:59:59")} />
-                </div>
-                    <button
-                        onClick={signInWithGoogle}
-                        className="bg-gradient-to-r from-yellow-500 to-yellow-900 text-white px-6 py-3 rounded-full shadow-lg  hover:shadow-xl focus:outline-none flex items-center"
-                    >
-                        <FcGoogle className="mr-2" size={24} />
-                        Register your team
-                    </button>
-                    {/* {error && <p className="-mt-4 text-red-500">{error}</p>} */}
+                <div className="absolute top-0 left-0 z-20"></div>
+                <div className="relative z-30 flex flex-col items-center justify-center md:p-10 py-10 px-4 -top-8 md:w-8/12 w-10/12 rounded-xl" style={{ backgroundColor: "rgba(0, 0, 0, 0.807)" }}>
+                <h1
+    className="
+        text-center font-montserrat font-bold mb-8 text-5xl
+        md:text-8xl md:font-montserrat
+        animate-fill-text
+        
+    "
+    data-text="INFO BASH V3.0"
+>
+    INFO BASH V3.0
+</h1>
 
+                    <div className="-mt-8">
+                        <CountdownTimer targetDate={new Date("2024-07-25T07:59:59")} />
+                    </div>
+                    <p className="text-xl mb-6 animate-fade-in text-center delay-1s">Join the competition and register your team now!</p>
+                    <button
+    onClick={signInWithGoogle}
+    className="relative  inline-flex items-center justify-center px-6 py-3 font-bold text-white bg-[#000014] rounded-full shadow-lg transition-transform duration-200 ease-in-out hover:animate-scaleUp   hover:bg-gradient-to-r from-[#000014] via-yellow-800 to-[#000014] hover:animate-colorPulse"
+>
+    <FcGoogle className="mr-2" size={24} />
+    Register your team
+</button>
+
+
+                    {/* {error && <p className="-mt-4 text-red-500">{error}</p>} */}
                 </div>
             </div>
-
         </>
     );
 };

@@ -108,12 +108,16 @@ const TeamRegistration = ({ user }) => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-700 py-20 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen flex items-center justify-center  py-20 px-4 sm:px-6 lg:px-8">
             {isRegistered && registeredTeam ? (
-                <div className="bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 p-10 rounded-lg shadow-xl w-full max-w-lg">
+                <div className=" p-10 rounded-lg shadow-xl w-full max-w-lg" style={{
+                    backgroundColor: 'rgba(0, 0, 20, 0.6)', // Transparent background color
+                    border: '6px solid gold', // Gold border style
+                    borderRadius: '0.6rem' // Rounded corners
+                }}>
                     <p className="text-green-400 text-2xl font-semibold text-center mb-6">You have already registered a team.</p>
                     <div>
-                        <h3 className="text-3xl font-bold text-yellow-500 mb-6 tracking-wide text-center">
+                        <h3 className="text-3xl font-bold text-yellow-500 mb-6 tracking-wide text-center" >
                             {registeredTeam.teamName}
                         </h3>
                         {registeredTeam.teamLogo && (
@@ -128,11 +132,14 @@ const TeamRegistration = ({ user }) => {
                         <h4 className="text-2xl font-semibold text-gray-500 mb-4">
                             Team Members:
                         </h4>
-                        <ul className="text-lg text-gray-300 space-y-2">
+                        <ul className="text-lg text-gray-300 space-y-2"  >
                             {registeredTeam.teamMembers.map((member, index) => (
                                 <li
                                     key={index}
-                                    className="relative pl-2 bg-gray-700 p-2 rounded-lg"
+                                    className="relative pl-2 p-2 rounded-lg" style={{
+                                        backgroundColor: 'rgba(0, 0, 20, 0.9)', // Transparent background color
+                                       // Rounded corners
+                                    }}
                                 >
                                     {member}
                                 </li>
@@ -141,7 +148,11 @@ const TeamRegistration = ({ user }) => {
                     </div>
                 </div>
             ) : (
-                <form onSubmit={handleSubmit} className="bg-gray-800 p-16 rounded-lg shadow-xl w-full max-w-lg">
+                <form onSubmit={handleSubmit} className=" p-16 rounded-lg shadow-xl w-full max-w-lg"style={{
+                    backgroundColor: 'rgba(0, 0, 20, 0.9)', // Transparent background color
+                    border: '6px solid gold', // Gold border style
+                    borderRadius: '0.6rem' // Rounded corners
+                }}>
                     <h2 className="text-3xl font-bold text-center text-yellow-500 mb-6">Register Your Team</h2>
                     <input
                         type="text"

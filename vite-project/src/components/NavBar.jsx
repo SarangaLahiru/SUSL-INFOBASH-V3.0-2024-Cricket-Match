@@ -15,12 +15,12 @@ const NavBar = ({ user }) => {
 
     return (
         <div className="bg-black relative z-50">
-            <Navbar className="p-0 bg-gradient-to-r from-black via-yellow-700 to-black shadow-lg z-50" style={{ backgroundColor:"#000014"}}  >
+            <Navbar className="p-0 bg-gradient-to-r h-20 pt-3 md:h-20 md:pt-0 from-[#000014] via-yellow-800 to-[#000014] shadow-lg z-50" style={{ backgroundColor:"#000014"}}  >
                 <Navbar.Brand href="/">
-                    <img src="./img/ggg.png" className="mr-3 h-10 sm:h-14" alt=" Logo" />
+                    <img src="./img/ggg.png" className="mx-4 mr-3 md:h-20 h-14 sm:h-14" alt=" Logo" />
                     <span className="self-center text-2xl font-bold whitespace-nowrap text-white">Info Bash</span>
                 </Navbar.Brand>
-                <div className="flex md:order-2 items-center">
+                <div className="flex md:order-2 mx-6 items-center">
                     {user ? (
                         <Dropdown
                             arrowIcon={false}
@@ -34,15 +34,16 @@ const NavBar = ({ user }) => {
                                 <span className="block truncate text-sm font-medium text-gray-500">{user.email}</span>
                             </Dropdown.Header>
                             <Dropdown.Item>
-                                <Link to="/register" className="hover:text-yellow-500">Dashboard</Link>
+                                <Link to="/register" className="hover:text-yellow-500">Profile</Link>
                             </Dropdown.Item>
-
                             <Dropdown.Divider />
                             <Dropdown.Item onClick={handleLogOut} className="hover:text-red-500">Sign out</Dropdown.Item>
                         </Dropdown>
                     ) : (
-                        <Link to="/signin" className="text-black ml-4 hover:text-gray-700">
-                            {/* Sign In */}
+                        <Link to="/signin" className="text-white ml-4 hover:text-gray-300" 
+                        
+                         >
+                            Sign In
                         </Link>
                     )}
                     <Navbar.Toggle />
@@ -60,7 +61,8 @@ const NavBar = ({ user }) => {
 const NavLink = ({ to, label, active }) => (
     <Link
         to={to}
-        className={`text-white hover:text-gray-300 px-4 py-6 text-lg font-medium transition duration-300 ${active ? 'font-bold border-b-4 border-yellow-500' : ''}`}
+        className={`text-white hover:text-gray-300 px-4 py-2 md:py-6 text-lg font-medium transition duration-300 ${active ? 'font-bold border-b-4 border-yellow-500' : ''}`}
+       
     >
         {label}
     </Link>

@@ -1,0 +1,13 @@
+/* Optional: Remove if Tailwind utilities handle your needs */
+.imge {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    position: relative; /* To ensure positioning within the viewport */
+    overflow: hidden; /* Prevent overflow of images */
+}
+
+.imge img {
+    width: 100%; /* Ensure the image covers the width of the container */
+    height: 100%; /* Ensure the image covers the height of the container */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+}
