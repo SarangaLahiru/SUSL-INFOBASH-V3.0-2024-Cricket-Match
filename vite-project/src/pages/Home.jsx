@@ -75,12 +75,12 @@ const Home = ({ user }) => {
 </h1>
 
                     <div className="-mt-8">
-                        <CountdownTimer targetDate={new Date("2024-07-25T07:59:59")} />
+                        <CountdownTimer targetDate={new Date("2024-08-05T07:59:59")} />
                     </div>
-                    <p className="text-xl mb-6 animate-fade-in text-center delay-1s">Join the competition and register your team now!</p>
+                    <p className="text-xl mb-6 animate-fade-in text-center delay-1s">Register your team now!</p>
                     <button
     onClick={signInWithGoogle}
-    className="relative  inline-flex items-center justify-center px-6 py-3 font-bold text-white bg-[#000014] rounded-full shadow-lg transition-transform duration-200 ease-in-out hover:animate-scaleUp   hover:bg-gradient-to-r from-[#000014] via-yellow-800 to-[#000014] hover:animate-colorPulse"
+    className="relative  inline-flex items-center justify-center px-6 py-3 font-bold text-white bg-[#000014] rounded-full shadow-lg transition-transform duration-200 ease-in-out hover:animate-scaleUp   hover:bg-gradient-to-r from-[#000014] via-[#ffcd00] to-[#000014] hover:animate-colorPulse"
 >
     <FcGoogle className="mr-2" size={24} />
     Register your team

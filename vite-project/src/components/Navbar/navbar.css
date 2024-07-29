@@ -1,0 +1,9 @@
+.navbar-brand-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 1rem;
+    background: linear-gradient(90deg, #fcb819, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}

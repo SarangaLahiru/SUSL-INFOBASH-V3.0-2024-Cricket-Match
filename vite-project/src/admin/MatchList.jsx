@@ -41,7 +41,7 @@ const MatchList = () => {
                     const team1 = teams[match.team1Id] || {};
                     const team2 = teams[match.team2Id] || {};
                     return (
-                        <div key={match.id} className="bg-white p-4 rounded shadow-md">
+                        <div key={match.id} className="bg-[#000014] p-4 rounded shadow-md">
                             <div className="flex justify-between mb-2">
                                 <span className="font-semibold">{team1.teamName || "Unknown Team"}</span>
                                 <span className="font-semibold">{team2.teamName || "Unknown Team"}</span>
@@ -63,7 +63,7 @@ const MatchList = () => {
             <h3 className="text-lg font-semibold mt-8 mb-4">Teams</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {Object.values(teams).map((team) => (
-                    <div key={team.id} className="bg-white p-4 rounded shadow-md">
+                    <div key={team.id} className="bg-[#000014] p-4 rounded shadow-md">
                         {team.teamLogo && (
                             <img src={team.teamLogo} alt={team.teamName} className="w-12 h-12 rounded-full mb-2" />
                         )}

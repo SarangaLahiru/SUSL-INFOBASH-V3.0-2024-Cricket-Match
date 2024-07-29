@@ -42,32 +42,32 @@ const AdminLoginPage = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center">
-            <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+            <div className="text-white bg-[#000014] p-8 rounded shadow-md w-full max-w-md">
                 <h2 className="text-2xl font-bold mb-4">Admin Login</h2>
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <label className="block text-white text-sm font-bold mb-2">Email</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="bg-gray-100 px-4 py-2 rounded w-full"
+                            className="bg-gray-100 text-black px-4 py-2 rounded w-full"
                             required
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                        <label className="block text-black text-sm font-bold mb-2">Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="bg-gray-100 px-4 py-2 rounded w-full"
+                            className="bg-gray-100 text-black px-4 py-2 rounded w-full"
                             required
                         />
                     </div>
                     <button
                         type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"
+                        className="bg-blue-500 hover:bg-blue-700 text-black px-4 py-2 rounded"
                     >
                         Login
                     </button>

@@ -37,7 +37,7 @@ const Matches = () => {
 
     return (
         <div className="container mx-auto mt-8">
-            <h2 className="text-2xl font-bold mb-4">Matches</h2>
+            <h2 className="text-4xl font-bold ml-3 mb-8 text-center">Matches</h2>
             <div className="grid grid-cols-1 gap-5 mt-3 md:grid-cols-2 lg:grid-cols-2">
                 {matches.map((match) => (
                     <MatchCard key={match.id} match={match} teams={teams} />
@@ -48,3 +48,4 @@ const Matches = () => {
 };
 
 export default Matches;
+ 
