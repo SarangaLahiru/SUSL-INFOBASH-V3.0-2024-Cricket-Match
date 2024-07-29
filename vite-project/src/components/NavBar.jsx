@@ -54,7 +54,7 @@ const NavBar = ({ user }) => {
                     <NavLink to="/matches" label="Matches" active={location.pathname === '/matches'} />
                     {!user && (
                         <div className="block md:hidden">
-                            <Link to="/signin" className="hover:text-yellow-500" onClick={signInWithGoogle}>Sign In</Link>
+                            <Link to="/signin" className="hover:text-yellow-500">Sign In</Link>
                         </div>
                     )}
                 </Navbar.Collapse>
