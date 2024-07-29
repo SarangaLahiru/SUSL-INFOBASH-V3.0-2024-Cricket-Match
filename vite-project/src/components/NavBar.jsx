@@ -41,9 +41,7 @@ const NavBar = ({ user }) => {
                         </Dropdown>
                     ) : (
                         <div className="hidden md:block">
-                            <Link to="/signin" className="text-white ml-4 hover:text-gray-300">
-                                Sign In
-                            </Link>
+                          
                         </div>
                     )}
                     <Navbar.Toggle />
@@ -52,11 +50,7 @@ const NavBar = ({ user }) => {
                     <NavLink to="/" label="Home" active={location.pathname === '/'} />
                     <NavLink to="/teams" label="Teams" active={location.pathname === '/teams'} />
                     <NavLink to="/matches" label="Matches" active={location.pathname === '/matches'} />
-                    {!user && (
-                        <div className="block md:hidden">
-                            <Link to="/signin" className="hover:text-yellow-500">Sign In</Link>
-                        </div>
-                    )}
+                   
                 </Navbar.Collapse>
             </Navbar>
         </div>
