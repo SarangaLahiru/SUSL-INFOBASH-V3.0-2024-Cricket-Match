@@ -138,7 +138,7 @@ const TeamRegistration = ({ user }) => {
                                     key={index}
                                     className="relative pl-2 p-2 rounded-lg" style={{
                                         backgroundColor: 'rgba(0, 0, 20, 0.9)', // Transparent background color
-                                       // Rounded corners
+                                        // Rounded corners
                                     }}
                                 >
                                     {member}
@@ -148,7 +148,7 @@ const TeamRegistration = ({ user }) => {
                     </div>
                 </div>
             ) : (
-                <form onSubmit={handleSubmit} className=" p-16 rounded-lg shadow-xl w-full max-w-lg"style={{
+                <form onSubmit={handleSubmit} className=" p-16 rounded-lg shadow-xl w-full max-w-lg" style={{
                     backgroundColor: 'rgba(0, 0, 20, 0.9)', // Transparent background color
                     border: '6px solid gold', // Gold border style
                     borderRadius: '0.6rem' // Rounded corners
@@ -159,16 +159,20 @@ const TeamRegistration = ({ user }) => {
                         value={teamName}
                         onChange={(e) => setTeamName(e.target.value)}
                         placeholder="Team Name"
-                        className="bg-gray-100 px-4 py-3 rounded mb-4 w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                        className="bg-gray-100 text-gray-500 px-4 py-3 rounded mb-4 w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                         required
                     />
-                    <input
-                        type="file"
-                        accept="image/jpeg"
-                        onChange={handleImageChange}
-                        className="bg-gray-100 px-4 py-3 rounded mb-4 w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                        required
-                    />
+                    <div>
+                        <h2>Upload your Team Photo(jpg/png)</h2>
+                        <input
+                            type="file"
+                            accept="image/jpeg"
+                            placeholder="upload your team photo"
+                            onChange={handleImageChange}
+                            className="bg-gray-100 text-gray-500 px-4 py-3 rounded mb-4 w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                            required
+                        />
+                    </div>
                     {teamMembers.map((member, index) => (
                         <div key={index} className="flex items-center mb-4">
                             <input
@@ -176,7 +180,7 @@ const TeamRegistration = ({ user }) => {
                                 value={member}
                                 onChange={(e) => handleInputChange(index, e)}
                                 placeholder={`Member ${index + 1}`}
-                                className="bg-gray-100 px-4 py-3 rounded w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                                className="bg-gray-100 text-gray-500 px-4 py-3 rounded w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                                 required
                             />
                             {index >= 0 && (

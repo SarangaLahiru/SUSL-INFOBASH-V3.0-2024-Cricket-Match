@@ -62,29 +62,29 @@ const Home = ({ user }) => {
                 </div>
                 <div className="absolute top-0 left-0 z-20"></div>
                 <div className="relative z-30 flex flex-col items-center justify-center md:p-10 py-10 px-4 -top-8 md:w-8/12 w-10/12 rounded-xl" style={{ backgroundColor: "rgba(0, 0, 0, 0.807)" }}>
-                <h1
-    className="
+                    <h1
+                        className="
         text-center font-montserrat font-bold mb-8 text-5xl
         md:text-8xl md:font-montserrat
         animate-fill-text
         
     "
-    data-text="INFO BASH V3.0"
->
-    INFO BASH V3.0
-</h1>
+                        data-text="INFO BASH V3.0"
+                    >
+                        INFO BASH V3.0
+                    </h1>
 
                     <div className="-mt-8">
                         <CountdownTimer targetDate={new Date("2024-08-05T07:59:59")} />
                     </div>
                     <p className="text-xl mb-6 animate-fade-in text-center delay-1s">Register your team now!</p>
                     <button
-    onClick={signInWithGoogle}
-    className="relative  inline-flex items-center justify-center px-6 py-3 font-bold text-white bg-[#000014] rounded-full shadow-lg transition-transform duration-200 ease-in-out hover:animate-scaleUp   hover:bg-gradient-to-r from-[#000014] via-[#ffcd00] to-[#000014] hover:animate-colorPulse"
->
-    <FcGoogle className="mr-2" size={24} />
-    Register your team
-</button>
+                        onClick={signInWithGoogle}
+                        className="relative  inline-flex items-center justify-center px-6 py-3 font-bold text-white bg-[#000014] rounded-full shadow-lg transition-transform duration-200 ease-in-out hover:animate-scaleUp   hover:bg-gradient-to-r from-[#000014] via-[#ffcd00] to-[#000014] hover:animate-colorPulse"
+                    >
+                        <FcGoogle className="mr-2" size={24} />
+                        Register your team
+                    </button>
 
 
                     {/* {error && <p className="-mt-4 text-red-500">{error}</p>} */}

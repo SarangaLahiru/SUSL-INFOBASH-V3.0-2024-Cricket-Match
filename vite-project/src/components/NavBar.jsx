@@ -15,10 +15,10 @@ const NavBar = ({ user }) => {
 
     return (
         <div className="bg-black relative z-50">
-            <Navbar className="p-0 bg-gradient-to-r h-20 pt-3 md:h-20 md:pt-0 from-[#000014] via-yellow-800 to-[#000014] shadow-lg z-50" style={{ backgroundColor:"#000014"}}  >
+            <Navbar className="p-0 bg-gradient-to-r h-20 pt-3 md:h-20 md:pt-0 from-[#000014] via-yellow-800 to-[#000014] shadow-lg z-50" style={{ backgroundColor: "#000014" }}  >
                 <Navbar.Brand href="/">
                     <img src="./img/ggg.png" className="mx-4 mr-3 md:h-20 h-14 sm:h-14" alt=" Logo" />
-                    <span className="self-center text-2xl font-bold whitespace-nowrap text-white">Info Bash</span>
+                    <span className="self-center text-2xl font-bold whitespace-nowrap text-white">INFO BASH</span>
                 </Navbar.Brand>
                 <div className="flex md:order-2 mx-6 items-center">
                     {user ? (
@@ -41,7 +41,7 @@ const NavBar = ({ user }) => {
                         </Dropdown>
                     ) : (
                         <div className="hidden md:block">
-                          
+
                         </div>
                     )}
                     <Navbar.Toggle />
@@ -50,7 +50,7 @@ const NavBar = ({ user }) => {
                     <NavLink to="/" label="Home" active={location.pathname === '/'} />
                     <NavLink to="/teams" label="Teams" active={location.pathname === '/teams'} />
                     <NavLink to="/matches" label="Matches" active={location.pathname === '/matches'} />
-                   
+
                 </Navbar.Collapse>
             </Navbar>
         </div>
