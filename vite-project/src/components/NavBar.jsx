@@ -1,16 +1,40 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { logOut } from "../../firebaseConfig";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { logOut, auth, db } from "../../firebaseConfig"; // Import your firebaseConfig
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { FcGoogle } from "react-icons/fc";
 
 const NavBar = ({ user }) => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
+    const [error, setError] = useState(null); // Handle error state
 
     const handleLogOut = () => {
         logOut();
         window.location.replace('/');
         setShowProfileMenu(false);
+    };
+
+    const signInWithGoogle = async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            const userDoc = doc(db, `users/${user.uid}`);
+            const userDocSnap = await getDoc(userDoc);
+
+            if (!userDocSnap.exists()) {
+                await setDoc(userDoc, { email: user.email, name: user.displayName, avatar: user.photoURL });
+            }
+
+            navigate('/register');
+        } catch (error) {
+            console.error("Error signing in with Google:", error);
+            setError("Error signing in with Google. Please try again.");
+        }
     };
 
     return (
@@ -40,9 +64,13 @@ const NavBar = ({ user }) => {
                             <Dropdown.Item onClick={handleLogOut} className="hover:text-red-500">Sign out</Dropdown.Item>
                         </Dropdown>
                     ) : (
-                        <div className="hidden md:block">
-
-                        </div>
+                        <button
+                            onClick={signInWithGoogle}
+                            className="relative inline-flex items-center justify-center px-6 py-3 font-bold text-white bg-[#000014] rounded-full shadow-lg transition-transform duration-200 ease-in-out hover:animate-scaleUp hover:bg-gradient-to-r from-[#000014] via-[#ffcd00] to-[#000014] hover:animate-colorPulse hidden md:flex"
+                        >
+                            <FcGoogle className="mr-2" size={24} />
+                            Sign In
+                        </button>
                     )}
                     <Navbar.Toggle />
                 </div>
@@ -50,7 +78,6 @@ const NavBar = ({ user }) => {
                     <NavLink to="/" label="Home" active={location.pathname === '/'} />
                     <NavLink to="/teams" label="Teams" active={location.pathname === '/teams'} />
                     <NavLink to="/matches" label="Matches" active={location.pathname === '/matches'} />
-
                 </Navbar.Collapse>
             </Navbar>
         </div>
@@ -65,6 +92,5 @@ const NavLink = ({ to, label, active }) => (
         {label}
     </Link>
 );
-
 
 export default NavBar;
