@@ -47,7 +47,7 @@ const TeamRegistration = ({ user }) => {
     };
 
     const handleAddMember = () => {
-        if (teamMembers.length < 11) {
+        if (teamMembers.length < 10) { // Allow only 10 players
             setTeamMembers([...teamMembers, ""]);
         }
     };
@@ -108,16 +108,17 @@ const TeamRegistration = ({ user }) => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center  py-20 px-4 sm:px-6 lg:px-8">
+        <>
+        <div className="min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
             {isRegistered && registeredTeam ? (
-                <div className=" p-10 rounded-lg shadow-xl w-full max-w-lg" style={{
+                <div className="p-10 rounded-lg shadow-xl w-full max-w-lg" style={{
                     backgroundColor: 'rgba(0, 0, 20, 0.6)', // Transparent background color
                     border: '6px solid gold', // Gold border style
                     borderRadius: '0.6rem' // Rounded corners
                 }}>
                     <p className="text-green-400 text-2xl font-semibold text-center mb-6">You have already registered a team.</p>
                     <div>
-                        <h3 className="text-3xl font-bold text-yellow-500 mb-6 tracking-wide text-center" >
+                        <h3 className="text-3xl font-bold text-yellow-500 mb-6 tracking-wide text-center">
                             {registeredTeam.teamName}
                         </h3>
                         {registeredTeam.teamLogo && (
@@ -132,11 +133,12 @@ const TeamRegistration = ({ user }) => {
                         <h4 className="text-2xl font-semibold text-gray-500 mb-4">
                             Team Members:
                         </h4>
-                        <ul className="text-lg text-gray-300 space-y-2"  >
+                        <ul className="text-lg text-gray-300 space-y-2">
                             {registeredTeam.teamMembers.map((member, index) => (
                                 <li
                                     key={index}
-                                    className="relative pl-2 p-2 rounded-lg" style={{
+                                    className="relative pl-2 p-2 rounded-lg"
+                                    style={{
                                         backgroundColor: 'rgba(0, 0, 20, 0.9)', // Transparent background color
                                         // Rounded corners
                                     }}
@@ -148,7 +150,7 @@ const TeamRegistration = ({ user }) => {
                     </div>
                 </div>
             ) : (
-                <form onSubmit={handleSubmit} className=" p-16 rounded-lg shadow-xl w-full max-w-lg" style={{
+                <form onSubmit={handleSubmit} className="p-16 rounded-lg shadow-xl w-full max-w-lg" style={{
                     backgroundColor: 'rgba(0, 0, 20, 0.9)', // Transparent background color
                     border: '6px solid gold', // Gold border style
                     borderRadius: '0.6rem' // Rounded corners
@@ -163,11 +165,11 @@ const TeamRegistration = ({ user }) => {
                         required
                     />
                     <div>
-                        <h2>Upload your Team Photo(jpg/png)</h2>
+                        <h2>Upload your Team Photo (jpg/png)</h2>
                         <input
                             type="file"
                             accept="image/jpeg"
-                            placeholder="upload your team photo"
+                            placeholder="Upload your team photo"
                             onChange={handleImageChange}
                             className="bg-gray-100 text-gray-500 px-4 py-3 rounded mb-4 w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                             required
@@ -194,7 +196,7 @@ const TeamRegistration = ({ user }) => {
                             )}
                         </div>
                     ))}
-                    {teamMembers.length < 11 && (
+                    {teamMembers.length < 10 && ( // Allow only 10 players
                         <button
                             type="button"
                             onClick={handleAddMember}
@@ -212,7 +214,34 @@ const TeamRegistration = ({ user }) => {
                     {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
                 </form>
             )}
+            
         </div>
+        <div className="flex justify-center -mt-16">
+        <div className="p-6 rounded-lg shadow-xl w-full md:max-w-4xl mx-3" style={{
+            backgroundColor: 'rgba(0, 0, 20, 0.8)', // Transparent background color
+            border: '6px solid gold', // Gold border style
+            borderRadius: '0.6rem' // Rounded corners
+        }}>
+            <h1 className="text-3xl font-bold text-center text-yellow-500 mb-6">Rules and Regulations</h1>
+            <ul className="text-lg text-gray-300 space-y-4">
+                <li>Only ten players can play per team.</li>
+                <li>The ten players per team should be as follows:
+                    <ul className="pl-4 list-disc list-inside">
+                        <li>Boys - 7</li>
+                        <li>Girls - 3</li>
+                    </ul>
+                </li>
+                <li>All teams must play only with balls provided by the organizing committee.</li>
+            </ul>
+            <h2 className="text-2xl font-semibold text-gray-400 mt-6 mb-4">Overs</h2>
+            <ul className="text-lg text-gray-300 space-y-4">
+                <li>The maximum number of overs that can be bowled by one player is one.</li>
+                <li>All the matches of the basic selection rounds will have 05 overs with 04 balls per each, while the matches of the semi-finals and the final will have 05 overs with 06 balls per each.</li>
+                <li>Both bowling and batting for the first over of all the matches should be covered by females.</li>
+            </ul>
+        </div>
+        </div>
+        </>
     );
 };
 
