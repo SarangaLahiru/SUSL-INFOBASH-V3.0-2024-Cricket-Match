@@ -6,7 +6,7 @@
 body {
     background-color: #000014; /* Dark Blue */
     color: white; /* Optional: Set text color to white for better readability */
-    background-image: url('./img/background-3.jpg'); /* Replace with your image path */
+    background-image: url('../img/background-3.jpg'); /* Replace with your image path */
     background-size: cover; /* Ensure the background covers the entire page */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-attachment: fixed; /* Fix the background image in place */
