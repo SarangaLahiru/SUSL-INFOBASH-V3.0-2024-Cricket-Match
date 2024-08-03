@@ -216,7 +216,7 @@ const TeamRegistration = ({ user }) => {
             )}
             
         </div>
-        <div className="flex justify-center -mt-16">
+        {/* <div className="flex justify-center -mt-16">
         <div className="p-6 rounded-lg shadow-xl w-full md:max-w-4xl mx-3" style={{
             backgroundColor: 'rgba(0, 0, 20, 0.8)', // Transparent background color
             border: '6px solid gold', // Gold border style
@@ -240,7 +240,7 @@ const TeamRegistration = ({ user }) => {
                 <li>Both bowling and batting for the first over of all the matches should be covered by females.</li>
             </ul>
         </div>
-        </div>
+        </div> */}
         </>
     );
 };
