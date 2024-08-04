@@ -38,11 +38,11 @@ export default function Teams() {
                                 borderRadius: '0.6rem' // Rounded corners
                             }}
                         >
-                            <h2 className="text-2xl sm:text-3xl font-semibold mb-2">{team.teamName}</h2>
+                            <h2 className="text-2xl sm:text-3xl text-center font-semibold mb-2">{team.teamName}</h2>
                             <img
                                 src={team.teamLogo}
                                 alt={`${team.teamName} Logo`}
-                                className="w-full h-32 sm:h-40 object-cover rounded-md mb-4"
+                                className="w-full h-48  sm:h-64 object-cover rounded-2xl mb-4"
                             />
                             <div className="text-gray-600 mb-4 text-white">
                                 <h3 className="font-semibold text-lg sm:text-xl">Players</h3>
