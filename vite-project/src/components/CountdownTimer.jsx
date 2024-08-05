@@ -47,7 +47,7 @@ const CountdownTimer = ({ targetDate }) => {
         <div className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl rounded-lg text-white">
             {isTimeUp ? (
                 <div className="text-center">
-                    <span className="text-[#ffcd00] text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold">
+                    <span className="text-[#f4f3f0] text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold">
                         Happening Now !
                     </span>
                 </div>
