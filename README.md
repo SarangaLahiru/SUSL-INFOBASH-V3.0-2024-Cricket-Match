@@ -22,8 +22,8 @@ Welcome to the SUSL INFOBASH 2024 Cricket Match platform! This web application i
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/SUSL-INFOBASH-2024.git
-   cd SUSL-INFOBASH-2024
+   https://github.com/SarangaLahiru/SUSL-INFOBASH-V3.0-2024-Cricket-Match.git
+   cd SUSL-INFOBASH-V3.0-2024-Cricket-Match
    ```
 
 2. **Install dependencies:**
